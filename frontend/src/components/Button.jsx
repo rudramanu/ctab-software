@@ -21,7 +21,7 @@ const Button = ({ item }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:9600/user")
+    fetch("https://crimson-swordfish-wrap.cyclic.app/user")
       .then((res) => res.json())
       .then((data) => {
         setDataFromBackend(data);
@@ -45,21 +45,24 @@ const Button = ({ item }) => {
 
   const handleClick = async (item) => {
     setCheck(false);
-    const res = await fetch("http://localhost:9600/user/adduser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: item.id,
-        name: item.name,
-        email: item.email,
-        phone: item.phone,
-        website: item.website,
-        city: item.address.city,
-        company: item.company.name,
-      }),
-    });
+    const res = await fetch(
+      "https://crimson-swordfish-wrap.cyclic.app/user/adduser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: item.id,
+          name: item.name,
+          email: item.email,
+          phone: item.phone,
+          website: item.website,
+          city: item.address.city,
+          company: item.company.name,
+        }),
+      }
+    );
 
     const data = await res.json();
     if (data.message === "User added in database") {

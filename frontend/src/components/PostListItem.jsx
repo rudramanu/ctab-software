@@ -4,7 +4,7 @@ const PostListItem = ({ item }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:9600/user`)
+    fetch(`https://crimson-swordfish-wrap.cyclic.app/user`)
       .then((res) => res.json())
       .then((data) => setUser(data[0]))
       .catch((err) => console.error(err));

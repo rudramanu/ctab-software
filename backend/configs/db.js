@@ -2,13 +2,7 @@ const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
-  "ct-user",
-  process.env.MYSQL_USER,
-  process.env.MYSQL_PASSWORD,
-  {
-    host: "localhost",
-    dialect: "mysql",
-  }
+  `mysql://avnadmin:${process.env.MYSQL_PASSWORD}@mysql-30b5284-merudramanu-1902.a.aivencloud.com:14844/ct-user`
 );
 
 try {

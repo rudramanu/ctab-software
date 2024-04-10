@@ -21,5 +21,5 @@ Fullstack
 
 ## Deplolyed App
 
-Frontend: https://cointab-f.netlify.app/
-Backend:
+Frontend: https://unrivaled-dodol-129cdd.netlify.app/
+Backend: https://crimson-swordfish-wrap.cyclic.app/

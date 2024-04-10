@@ -18,14 +18,14 @@ const PostButton = () => {
   }, [id]);
 
   useEffect(() => {
-    fetch(`http://localhost:9600/user/${id}`)
+    fetch(`https://crimson-swordfish-wrap.cyclic.app/user/${id}`)
       .then((res) => res.json())
       .then((data) => setUser(data))
       .catch((err) => console.error(err));
   }, [id]);
 
   useEffect(() => {
-    fetch(`http://localhost:9600/post/getpost/${id}`)
+    fetch(`https://crimson-swordfish-wrap.cyclic.app/post/getpost/${id}`)
       .then((res) => res.json())
       .then((data) => setUserPostData(data))
       .catch((err) => console.error(err));
@@ -46,13 +46,16 @@ const PostButton = () => {
     });
 
     try {
-      const res = await fetch(`http://localhost:9600/post/userpost`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      });
+      const res = await fetch(
+        `https://crimson-swordfish-wrap.cyclic.app/post/userpost`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
       const data = await res.json();
       if (data.message === "Post uploaded by user in database") {
@@ -68,7 +71,10 @@ const PostButton = () => {
 
   const handleDownloadClick = async (id) => {
     try {
-      window.open(`http://localhost:9600/post/userposts/${id}`, "_blank");
+      window.open(
+        `https://crimson-swordfish-wrap.cyclic.app/post/userposts/${id}`,
+        "_blank"
+      );
     } catch (error) {
       console.error(error);
     }
